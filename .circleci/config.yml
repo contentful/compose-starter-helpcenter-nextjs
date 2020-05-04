@@ -1,0 +1,36 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+
+commands:
+  run_with_cache:
+    parameters:
+      steps:
+        type: steps
+    steps:
+      - restore_cache:
+          keys:
+            - cache-v1
+      - steps: << parameters.steps >>
+      - save_cache:
+          key: cache-v1
+          paths:
+            - ~/.cache/yarn
+
+jobs:
+  lint:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - run_with_cache:
+          steps:
+            - run: yarn install --prefer-offline --pure-lockfile
+            - run: yarn prettier:check
+            - run: yarn lint
+            - run: yarn tsc
+
+workflows:
+  lint-and-test:
+    jobs:
+      - lint

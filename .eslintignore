@@ -1,0 +1,5 @@
+# eslint ignores its own config file by default
+!.eslintrc.js
+# ignore nested node_modules
+**/node_modules/**
+src/lib/types
