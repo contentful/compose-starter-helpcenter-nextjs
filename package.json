@@ -18,7 +18,7 @@
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",
     "@tailwindcss/typography": "^0.2.0",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
     "contentful": "^7.14.12",
     "date-fns": "^2.19.0",
     "fast-safe-stringify": "^2.0.7",
