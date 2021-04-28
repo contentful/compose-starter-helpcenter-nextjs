@@ -1,0 +1,45 @@
+version: 2
+registries:
+  npm-registry-registry-npmjs-org:
+    type: npm-registry
+    url: https://registry.npmjs.org
+    token: "${{secrets.NPM_REGISTRY_REGISTRY_NPMJS_ORG_TOKEN}}"
+
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "00:00"
+    timezone: Etc/UCT
+  open-pull-requests-limit: 99
+  target-branch: master
+  labels:
+  - dependencies
+  - dependabot
+  ignore:
+  - dependency-name: date-fns
+    versions:
+    - 2.20.1
+  - dependency-name: classnames
+    versions:
+    - 2.3.1
+  - dependency-name: contentful
+    versions:
+    - 8.2.0
+    - 8.2.1
+  - dependency-name: husky
+    versions:
+    - 5.1.3
+    - 5.2.0
+  - dependency-name: next
+    versions:
+    - 10.0.8
+    - 10.0.9
+  - dependency-name: typescript
+    versions:
+    - 4.2.3
+  commit-message:
+    prefix: chore
+  registries:
+  - npm-registry-registry-npmjs-org
