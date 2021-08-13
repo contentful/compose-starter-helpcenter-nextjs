@@ -23,7 +23,7 @@
     "date-fns": "^2.19.0",
     "fast-safe-stringify": "^2.0.8",
     "lodash": "^4.17.21",
-    "next": "^9.5.5",
+    "next": "^11.1.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-player": "^2.9.0"
