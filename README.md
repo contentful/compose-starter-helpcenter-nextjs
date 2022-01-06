@@ -30,7 +30,11 @@ to start the website on `http://localhost:3000`
 
 ## Deploy to Vercel
 
-You can use [Vercel](https://vercel.com/) to easily deploy the app remotely.
+You can use [Vercel](https://vercel.com/) to easily deploy the app by clicking the deploy button below:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcontentful%2Fcompose-starter-helpcenter-nextjs&env=CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN&envDescription=Space%20ID%20and%20API%20Keys%20needed%20for%20the%20frontend%20to%20access%20your%20Contentful%20Space&envLink=https%3A%2F%2Fapp.contentful.com%2Fdeeplink%3Flink%3Dapi&project-name=contentful-compose-helpcenter-starter&repo-name=contentful-compose-helpcenter-starter)
+
+For manual deployment, you can following the steps below: 
 
 1.  Open your Vercel dashboard and click on "New project".
 2.  Click on "Import a Third-Party Git Repository" and enter the url of this repo.
