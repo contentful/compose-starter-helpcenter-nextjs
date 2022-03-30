@@ -1,7 +1,7 @@
 # Compose Starter: Help Center + Next.js
 
 This is a sample website frontend to help you get started with Compose and
-Next.js. You can use this example with Compose's quick start content for empty
+Next.js. You can use this example with Compose's quick start "Simple website" content model for empty
 spaces.
 
 ## Getting started
@@ -34,7 +34,7 @@ You can use [Vercel](https://vercel.com/) to easily deploy the app by clicking t
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcontentful%2Fcompose-starter-helpcenter-nextjs&env=CF_SPACE_ID,CF_DELIVERY_ACCESS_TOKEN,CF_PREVIEW_ACCESS_TOKEN&envDescription=Space%20ID%20and%20API%20Keys%20needed%20for%20the%20frontend%20to%20access%20your%20Contentful%20Space&envLink=https%3A%2F%2Fapp.contentful.com%2Fdeeplink%3Flink%3Dapi&project-name=contentful-compose-helpcenter-starter&repo-name=contentful-compose-helpcenter-starter)
 
-For manual deployment, you can following the steps below: 
+For manual deployment, you can following the steps below:
 
 1.  Open your Vercel dashboard and click on "New project".
 2.  Click on "Import a Third-Party Git Repository" and enter the url of this repo.
@@ -49,8 +49,8 @@ You are all set! When the deployment run completes, you will see the app at the 
 
 ## Tech used
 
-- [Next.js 9.x][nextjs]
-- [TypeScript 3.x][typescript]
+- [Next.js 12.x][nextjs]
+- [TypeScript 4.x][typescript]
 - [Tailwind CSS][tailwind]
 
 ## Project structure
@@ -61,7 +61,7 @@ src/
   ├ components
   ├ lib
   │   ├ translations/
-  │   ├ types/
+  │   ├ generated-types/
   │   ├ api.ts
   │   └ ... etc
   │
@@ -95,7 +95,7 @@ next.config.js
 
 ## Generating Content Types
 
-We use [cf-content-types-generator][cf-content-types-generator] to keep the Content Types definitions in `src/lib/types` in sync with the space we use.
+We use [cf-content-types-generator][cf-content-types-generator] to keep the Content Types definitions in `src/lib/generated-types` in sync with the space we use.
 
 ```shell
 # Credentials to be used by cf-content-types-generator (see package.json)

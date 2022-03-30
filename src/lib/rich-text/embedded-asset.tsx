@@ -15,7 +15,7 @@ export const EmbeddedAsset = (({
       <Video
         sys={sys}
         // Change fields format to what <Image /> expects
-        fields={fields as any}
+        fields={fields}
         toPlainObject={noop as any}
         update={noop as any}
       />
@@ -29,6 +29,7 @@ export const EmbeddedAsset = (({
         sys={sys}
         // Change fields format to what <Image /> expects
         fields={{
+          name: fields.name,
           title: fields.title,
           image: { fields } as any,
         }}

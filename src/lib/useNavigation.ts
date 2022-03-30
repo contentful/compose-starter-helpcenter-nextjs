@@ -13,7 +13,7 @@ export interface LinkProps {
 
 function linkToPage(locale: Locale, page: TypePage, isPreview: boolean): LinkProps {
   const slug = page.fields.slug;
-  const pageType = page.fields.content?.sys.contentType.sys.id;
+  const pageType = page.sys.contentType.sys.id;
 
   switch (pageType) {
     case PageContentTypes.HelpDeskArticle: {
@@ -52,8 +52,8 @@ export function useNavigation() {
 
   const linkToPath = (url: string): LinkProps => {
     return {
-      href: withPreviewParam(`/[locale]/${url}`, isPreview),
-      as: withPreviewParam(`/${locale}/${url}`, isPreview),
+      href: withPreviewParam(`/[locale]${url}`, isPreview),
+      as: withPreviewParam(`/${locale}${url}`, isPreview),
     };
   };
 

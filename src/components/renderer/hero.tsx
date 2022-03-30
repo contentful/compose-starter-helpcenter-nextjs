@@ -1,13 +1,16 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Link } from 'components/link';
 
 import { TypeComponent_hero } from 'lib/types';
 import { isRichText, renderRichText } from 'lib/rich-text';
+import { ComponentProps } from 'react';
 
 export const Hero = ({ fields }: TypeComponent_hero) => {
   const { title, text, ctaText, ctaLink, image } = fields;
   const textComp = isRichText(text) ? renderRichText(text) : text;
-  const linkProps = ctaLink ? { page: ctaLink } : { href: '#' };
+  const linkProps: Omit<ComponentProps<typeof Link>, 'children'> = ctaLink
+    ? { page: ctaLink }
+    : { href: '#' };
 
   return (
     <div className="bg-white mx-auto max-w-screen-xl">
