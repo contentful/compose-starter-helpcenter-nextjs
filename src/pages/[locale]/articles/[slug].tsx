@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/naming-convention */
 import React from 'react';
 import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
@@ -40,13 +40,13 @@ type ArticleProps = {
 
 export default function Article({ page, otherPages }: ArticleProps) {
   const router = useRouter();
-  const article = page?.fields.content as TypePage_help_center_article;
 
-  if (!router.isFallback && !article) {
+  if (!router.isFallback && !page) {
     return <ErrorPage statusCode={404} />;
   }
 
-  const { body = [], relatedPages = [] } = article?.fields || {};
+  const content = page as TypePage_help_center_article;
+  const { body = [], relatedPages = [] } = content?.fields || {};
 
   return (
     <>
@@ -59,7 +59,8 @@ export default function Article({ page, otherPages }: ArticleProps) {
           <MobileNavigation pages={otherPages} />
           <div
             className="w-full inset-0 hidden h-64 lg:h-auto overflow-x-hidden overflow-y-auto lg:overflow-y-hidden lg:block mt-0 border border-gray-400 lg:border-transparent bg-white shadow lg:shadow-none lg:bg-transparent"
-            style={{ top: '5em' }}>
+            style={{ top: '5em' }}
+          >
             <OtherPagesSidebar pages={otherPages} />
           </div>
         </div>

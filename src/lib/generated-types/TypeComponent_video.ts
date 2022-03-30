@@ -2,9 +2,6 @@ import * as Contentful from 'contentful';
 
 export interface TypeComponent_videoFields {
   title?: Contentful.EntryFields.Symbol;
-  file?: {
-    url: string;
-  };
   youtubeVideoId: Contentful.EntryFields.Symbol;
 }
 

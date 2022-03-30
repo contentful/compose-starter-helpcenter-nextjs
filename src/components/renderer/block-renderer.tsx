@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import React from 'react';
-import type { Entry } from 'contentful';
 
 import { Hero } from './hero';
 import { Text } from './text';
@@ -8,7 +7,7 @@ import { Image } from './image';
 import { Video } from './video';
 import { Section } from './section';
 import { HelpCenterArticle } from './help-center-article';
-import { PageContentTypes, ComponentContentTypes, PageContentType } from '../../lib/constants';
+import { PageContentTypes, ComponentContentTypes } from '../../lib/constants';
 
 type BlockRendererProps = {
   block: any;
@@ -43,15 +42,10 @@ const BlockRenderer = ({ block }: BlockRendererProps) => {
   return <Component key={`${contentTypeId}-${id}`} {...componentProps} />;
 };
 
-const fromPage = (fieldName: string) => (parent: Entry<unknown>) => (
-  <BlockRenderer block={{ ...parent?.fields[fieldName], parent }} />
-);
-
 const ContentTypeMap = {
   [ComponentContentTypes.Hero]: Hero,
   [ComponentContentTypes.Section]: Section,
   [PageContentTypes.HelpDeskArticle]: HelpCenterArticle,
-  [PageContentType]: fromPage('content'),
   [ComponentContentTypes.Text]: Text,
   [ComponentContentTypes.Image]: Image,
   [ComponentContentTypes.Video]: Video,

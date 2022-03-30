@@ -1,7 +1,6 @@
 import { createClient } from 'contentful';
 
 import { parsePage } from './pageParsers';
-import { PageContentType } from './constants';
 import { Locale } from './translations';
 
 const client = createClient({
@@ -29,15 +28,13 @@ const getPageQuery = (params: GetPageParams) => ({
   include: 10,
   locale: params.locale,
   'fields.slug': params.slug,
-  content_type: PageContentType,
-  'fields.content.sys.contentType.sys.id': params.pageContentType,
+  content_type: params.pageContentType,
 });
 
 export async function getPage(params: GetPageParams) {
   const query = getPageQuery(params);
-  const {
-    items: [page],
-  } = await getClient(params.preview).getEntries(query);
+  const { items } = await getClient(params.preview).getEntries(query);
+  const page = items[0];
 
   return page ? parsePage(page) : null;
 }
@@ -55,8 +52,7 @@ export async function getPagesOfType(params: GetPagesOfTypeParams) {
   const { items: pages } = await client.getEntries({
     limit: 100,
     locale,
-    content_type: PageContentType,
-    'fields.content.sys.contentType.sys.id': pageContentType,
+    content_type: pageContentType,
   });
 
   return pages ? pages.map((page) => parsePage(page)) : [];

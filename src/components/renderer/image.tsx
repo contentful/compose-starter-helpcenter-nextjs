@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/naming-convention */
 import React from 'react';
 
 import { TypeComponent_image } from 'lib/types';
@@ -9,7 +9,7 @@ const styles = {
   },
 };
 
-export function Image({ fields }: TypeComponent_image) {
+export function Image({ fields }: Omit<TypeComponent_image, 'metadata'>) {
   const { title, image } = fields;
 
   return (
