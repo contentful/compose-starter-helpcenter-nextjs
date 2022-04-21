@@ -1,3 +1,7 @@
+❗❗❗  
+This branch is intended to be used with the legacy content model of Compose as [described in the documentation](https://www.contentful.com/developers/docs/compose/legacy/). If you set up Compose after April 21st 2022, please use the `master` branch.  
+❗❗❗
+
 # Compose Starter: Help Center + Next.js
 
 This is a sample website frontend to help you get started with Compose and
