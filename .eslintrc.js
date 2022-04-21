@@ -10,23 +10,25 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:jest/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:react/recommended',
     'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/react',
   ],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
   },
-  plugins: ['react-hooks'],
+  plugins: ['react-hooks', 'jest'],
   settings: {
     react: {
       version: '16.13.0',
+    },
+    jest: {
+      version: 26,
     },
     'import/extensions': allExtensions,
     'import/parsers': {
@@ -40,7 +42,13 @@ module.exports = {
     },
   },
   rules: {
-    '@typescript-eslint/camelcase': ['error', { properties: 'never', ignoreDestructuring: true }],
+    '@typescript-eslint/naming-convention': [
+      'warn',
+      {
+        selector: 'variable',
+        format: ['camelCase'],
+      },
+    ],
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     'react-hooks/rules-of-hooks': 'error',
@@ -51,5 +59,6 @@ module.exports = {
 
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
+    '@typescript-eslint/no-var-requires': 0,
   },
 };
