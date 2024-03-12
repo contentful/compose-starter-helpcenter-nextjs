@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: compose-starter-helpcenter-nextjs
+  description: |
+    A sample website frontend for Compose with Next.js
+  annotations:
+    circleci.com/project-slug: github/contentful/compose-starter-helpcenter-nextjs
+    github.com/project-slug: contentful/compose-starter-helpcenter-nextjs
+    backstage.io/source-location: url:https://github.com/contentful/compose-starter-helpcenter-nextjs/
+spec:
+  type: library
+  lifecycle: production
+  owner: group:team-tolkien
